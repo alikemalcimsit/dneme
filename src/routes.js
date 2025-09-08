@@ -27,7 +27,7 @@ router.post("/stream/token/:id", async (req, res) => {
     // Kullanıcıyı Stream tarafında upsert etmek isteğe bağlı
     // await client.upsertUsers([{ id: user_id, role: "user" }]);
 
-    const token = client.generateUserToken(user_id, { validity_in_seconds: ttl });
+    generateUserToken({ user_id: user_id, validity_in_seconds: ttl })
 
     return res.json({
       api_key: apiKey,
